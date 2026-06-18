@@ -3,6 +3,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import connectDB from './db/connectDB.js';
+import { auth } from './config/betterAuth.js';
+import { toNodeHandler } from 'better-auth/node';
 
 dotenv.config();
 
@@ -19,6 +21,9 @@ app.use(cookieParser());
 
 // Connect Database
 connectDB();
+
+// Better Auth handler
+app.all('/api/auth/{*path}', toNodeHandler(auth));
 
 // Test route
 app.get('/', (req, res) => {
