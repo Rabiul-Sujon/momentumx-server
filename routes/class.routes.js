@@ -22,8 +22,9 @@ router.get('/trainer', verifyTrainer, getTrainerClasses);
 router.get('/admin', verifyAdmin, getAllClassesAdmin);
 router.get('/:id', getSingleClass);
 router.post('/', verifyTrainer, createClass);
-router.put('/:id', verifyTrainer, updateClass);
-router.delete('/:id', verifyToken, deleteClass);
 router.put('/status/:id', verifyAdmin, updateClassStatus);
+router.put('/:id', verifyAdmin, updateClassStatus);
+router.delete('/:id', verifyToken, deleteClass);
+
 
 export default router;
