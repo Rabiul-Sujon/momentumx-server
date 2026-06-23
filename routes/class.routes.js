@@ -23,7 +23,8 @@ router.get('/admin', verifyAdmin, getAllClassesAdmin);
 router.get('/:id', getSingleClass);
 router.post('/', verifyTrainer, createClass);
 router.put('/status/:id', verifyAdmin, updateClassStatus);
-router.put('/:id', verifyAdmin, updateClassStatus);
+// router.put('/:id', verifyAdmin, updateClassStatus);
+router.put('/:id', verifyTrainer, updateClass);
 router.delete('/:id', verifyToken, deleteClass);
 
 
