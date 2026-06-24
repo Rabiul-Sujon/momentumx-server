@@ -41,7 +41,9 @@ export const checkFavorite = async (req, res) => {
       classId,
     });
 
-    res.status(200).json({ favorited: !!favorite });
+    res.status(200).json({ favorited: !!favorite,
+      favoriteId: favorite ? favorite._id : null
+     });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
