@@ -72,6 +72,7 @@ advanced: {
     partitioned: true, // for Chrome's CHIPS
   },
    useSecureCookies: true,
+   disableCSRFCheck: true,
 },
 
   socialProviders: {
