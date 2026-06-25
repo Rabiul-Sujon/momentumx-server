@@ -44,6 +44,10 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Cookie', 'Set-Cookie'],
 }));
+
+// Better Auth handler
+app.all('/api/auth/{*path}', toNodeHandler(auth));
+
 // app.options('*', cors({
 //   origin: [
 //     'http://localhost:3000',
@@ -58,8 +62,7 @@ app.use(cookieParser());
 // Connect Database
 connectDB();
 
-// Better Auth handler
-app.all('/api/auth/{*path}', toNodeHandler(auth));
+
 
 // Routes
 // app.use('/api/auth', authRoutes);
