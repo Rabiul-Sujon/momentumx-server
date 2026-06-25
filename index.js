@@ -62,7 +62,7 @@ connectDB();
 app.all('/api/auth/{*path}', toNodeHandler(auth));
 
 // Routes
-app.use('/api/auth', authRoutes);
+// app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/classes', classRoutes);
 app.use('/api/bookings', bookingRoutes);
