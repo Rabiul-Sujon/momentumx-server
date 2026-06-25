@@ -60,8 +60,18 @@ export const auth = betterAuth({
     'https://momentumx-client.vercel.app',
     process.env.CLIENT_URL,
   ],
+
+    // ✅ FIX FOR VERCEL SERVERLESS
+  account: {
+    skipStateCookieCheck: true,
+  },
+
+  // ✅ STORE VERIFICATION IN DB
+  verification: {
+    storeInDatabase: true,
+  },
   
-  // ✅ ADD THIS COOKIE CONFIGURATION
+  //  COOKIE CONFIGURATION
 advanced: {
   crossSubdomainCookies: {
     enabled: false,
