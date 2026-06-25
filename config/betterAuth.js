@@ -71,6 +71,7 @@ advanced: {
     sameSite: 'none',
     partitioned: true, // for Chrome's CHIPS
   },
+   useSecureCookies: true,
 },
 
   socialProviders: {
