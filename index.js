@@ -24,15 +24,34 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+// app.use(cors({
+//   origin: [
+//     'http://localhost:3000',
+//     'https://momentumx-client.vercel.app',
+//     'https://momentumx.vercel.app',
+//     process.env.CLIENT_URL,
+//   ],
+//   credentials: true,
+// }));
+
 app.use(cors({
   origin: [
     'http://localhost:3000',
     'https://momentumx-client.vercel.app',
-    'https://momentumx.vercel.app',
     process.env.CLIENT_URL,
   ],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Cookie', 'Set-Cookie'],
 }));
+// app.options('*', cors({
+//   origin: [
+//     'http://localhost:3000',
+//     'https://momentumx-client.vercel.app',
+//     process.env.CLIENT_URL,
+//   ],
+//   credentials: true,
+// }));
 app.use(express.json());
 app.use(cookieParser());
 
