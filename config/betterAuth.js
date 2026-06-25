@@ -62,21 +62,28 @@ export const auth = betterAuth({
   ],
   
   // ✅ ADD THIS COOKIE CONFIGURATION
- cookie: {
-  secure: process.env.NODE_ENV === 'production',  
-  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+advanced: {
+  crossSubdomainCookies: {
+    enabled: false,
+  },
+  defaultCookieAttributes: {
+    secure: true,
+    sameSite: 'none',
+    partitioned: true, // for Chrome's CHIPS
+  },
 },
 
   socialProviders: {
-    google: {
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    },
+  google: {
+    clientId: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    redirectURI: `${process.env.BETTER_AUTH_URL}/api/auth/callback/google`,
   },
+},
   emailAndPassword: {
     enabled: true,
     minPasswordLength: 6,
-    autoSignIn: false,
+    autoSignIn: true,
   },
   user: {
     additionalFields: {
