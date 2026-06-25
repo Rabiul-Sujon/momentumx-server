@@ -62,10 +62,10 @@ export const auth = betterAuth({
   ],
   
   // ✅ ADD THIS COOKIE CONFIGURATION
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-  },
+ cookie: {
+  secure: process.env.NODE_ENV === 'production',  
+  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+},
 
   socialProviders: {
     google: {
