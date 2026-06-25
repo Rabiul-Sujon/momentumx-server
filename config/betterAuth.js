@@ -12,7 +12,10 @@ export const auth = betterAuth({
   database: mongodbAdapter(db),
   secret: process.env.BETTER_AUTH_SECRET,
   baseURL: process.env.BETTER_AUTH_URL || 'http://localhost:5000',
-  trustedOrigins: [process.env.CLIENT_URL],
+  trustedOrigins: ['http://localhost:3000',
+  'https://momentumx-client.vercel.app',
+  process.env.CLIENT_URL,],
+  
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
