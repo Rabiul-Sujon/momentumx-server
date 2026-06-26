@@ -46,7 +46,7 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 
-// dotenv.config();
+dotenv.config();
 
 const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db();
@@ -74,7 +74,8 @@ export const auth = betterAuth({
   //  COOKIE CONFIGURATION
 advanced: {
   crossSubdomainCookies: {
-    enabled: false,
+    enabled: true,
+    domain: 'vercel.app'
   },
   defaultCookieAttributes: {
     secure: true,
