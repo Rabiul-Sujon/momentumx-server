@@ -46,7 +46,7 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 
-dotenv.config();
+// dotenv.config();
 
 const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db();
